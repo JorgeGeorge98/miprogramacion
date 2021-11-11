@@ -1,5 +1,7 @@
 package tema5;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -27,6 +29,7 @@ public class Tema5 {
 		}
 		default:
 			System.out.println("Error");
+			break;
 		}
 		
 		
@@ -70,30 +73,39 @@ public class Tema5 {
 		int numref2=0;
 		int numref3=0;
 		
-		while(elec > 0) {
-			switch (elec) {
+		while (elec>0 && elec<=3) {
+			switch(elec) {
 			case 1:
-				pedido.put(numref1, "PC");
+				System.out.println("Has seleccionado PC PRE-BUILD");
 				numref1++;
+				pedido.put(numref1, "PC");
+				System.out.println("\n---TIENDA DE ELECTRONICA PEPE---");
+				System.out.println("\n(1) PC Pre-Build\n(2) Tablet\n(3) Smartphone\nPresione 0 para salir.");
+				elec = scan.nextInt();
 				break;
 			case 2:
-				pedido.put(numref2, "Tablet");
+				System.out.println("Has seleccionado Tablet");
 				numref2++;
+				pedido.put(numref2,"Tablet");
+				System.out.println("---TIENDA DE ELECTRONICA PEPE---");
+				System.out.println("\n(1) PC Pre-Build\n(2) Tablet\n(3) Smartphone\nPresione 0 para salir.");
+				elec = scan.nextInt();
 				break;
 			case 3:
-				pedido.put(numref3, "Smartphone");
+				System.out.println("Has seleccionado Smartphone");
 				numref3++;
+				pedido.put(numref3, "Smartphone");
+				System.out.println("---TIENDA DE ELECTRONICA PEPE---");
+				System.out.println("\n(1) PC Pre-Build\n(2) Tablet\n(3) Smartphone\nPresione 0 para salir.");
+				elec=scan.nextInt();
 				break;
-			default:
-				System.out.println("Erorr");
 			}
 		}
+		
 		System.out.println("Gracias por su visita :)");
 		scan.nextLine();
 		
-		System.out.println("Buscador de Numeros de Referencia");
-		scan.nextLine();
-		
+		System.out.println("\nBUSCADOR DE NUMEROS DE REFERENCIA");
 		System.out.println("Que quiere buscar (1), (2) o (3): ");
 		int elec2 = scan.nextInt();
 		
@@ -101,31 +113,32 @@ public class Tema5 {
 		case 1:
 			for(Entry<Integer, String> entry: pedido.entrySet()) {
 				if(entry.getValue()=="PC") {
-					System.out.println(entry.getKey()+"\n");
+					System.out.println("Numero de referencia:");
+					System.out.println(entry.getKey()+ " PC\n");
 				}
 			}
 		break;		
 		case 2:
 			for(Entry<Integer, String> entry: pedido.entrySet()) {
 				if(entry.getValue()=="Tablet") {
-					System.out.println(entry.getKey()+"\n");
+					System.out.println("Numero de referencia: ");
+					System.out.println(entry.getKey()+" Tablet\n");
 					}
 				}
 			break;
 		case 3:
 			for(Entry<Integer, String> entry: pedido.entrySet()) {
 				if(entry.getValue()=="Smartphone") {
-					System.out.println(entry.getKey()+"\n");
+					System.out.println("Numero de referencia: ");
+					System.out.println(entry.getKey()+ " Smartphone\n");
 				}
 			}
 		break;
+		default:
+			System.out.println("Error");
+			break;
 		}
 		}
-	
-		
-		
-		
-		
 		/*
 		 * Ejercicio 3.
 		 * Se tiene que implementar un programa que almacene todas las calles de un apartado postal
@@ -134,9 +147,52 @@ public class Tema5 {
 	
 	public static void eje3() {
 		
+		Scanner scan = new Scanner (System.in);
+		
+		System.out.println("\nEJERCICIO 3");
+		scan.nextLine();
+		
+		
+		System.out.println("Decida que quiere hacer:\n(1)Almacenar datos (2)Consultar datos (0)Salir");
+		int eleccion = scan.nextInt();
+		ArrayList<String> al1 = new ArrayList<String>();
+		Map<Integer, ArrayList<String>> codcalles= new HashMap<>();
+		String str;
+		
+		while(eleccion>0) {
+			switch(eleccion) {
+				case 1:
+					int check = 1;
+					System.out.println("ALMACENAR DATOS");
+					while (check != 0) {
+						System.out.print("Introduzca una calle:");
+						str = scan.next();
+						al1.add(str);
+						System.out.println("Si quiere parar presione 0, presione 1 para continuar: ");
+						check = scan.nextInt();
+					}
+					
+					System.out.println("Introduzca el codigo postal: ");
+					int codpos = scan.nextInt();
+					codcalles.put(codpos, al1);
+					System.out.println("Que quiere hacer ahora: (1)Almacenar mas datos (2)Consultar datos (0)Salir");
+					eleccion=scan.nextInt();
+					break;
+				
+				case 2:
+					System.out.println("CONSULTAR DATOS");
+					System.out.println("Introduzca el codigo postal a consultar: ");
+					codpos=scan.nextInt();
+					for (Entry<Integer, ArrayList<String>> entry : codcalles.entrySet()) {
+				        int key = entry.getKey();
+				        ArrayList<String> value = entry.getValue();
+				        System.out.println(key + " " + value);
+				    System.out.println("Que quiere hacer ahora: (1)Almacenar mas datos (2)Consultar datos (0)Salir");
+				    eleccion=scan.nextInt();
+				    break;
+					
+			}
+		}
+		}	
 	}
 }
-
-
-
-
