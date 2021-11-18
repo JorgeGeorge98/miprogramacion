@@ -7,14 +7,20 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.Map.Entry;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 public class Tema5 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("Elija el Ejercicio (2) o (3): ");
+		System.out.println("Elija el Ejercicio (2) (3): ");
 		
 		int eleccion = scan.nextInt();
 		
@@ -145,7 +151,7 @@ public class Tema5 {
 		 * "Una clave con muchos valores"
 		 */
 	
-	public static void eje3() {
+	public static void eje3() throws Exception {
 		
 		Scanner scan = new Scanner (System.in);
 		
@@ -187,9 +193,26 @@ public class Tema5 {
 				        int key = entry.getKey();
 				        ArrayList<String> value = entry.getValue();
 				        System.out.println(key + " " + value);
+				        
+				        //POI
+				        XWPFDocument doc = new XWPFDocument();
+						
+						FileOutputStream out = new FileOutputStream(new File("poi.docx"));
+						
+						XWPFParagraph parrafo = doc.createParagraph();
+						
+						XWPFRun run = parrafo.createRun();
+						run.setText(key + " " + value);
+						doc.write(out);
+						out.close();
+						System.out.println("-documento creado-");
+						//FIN DEL POI
+						
 				    System.out.println("Que quiere hacer ahora: (1)Almacenar mas datos (2)Consultar datos (0)Salir");
 				    eleccion=scan.nextInt();
 				    break;
+				    
+			
 					
 			}
 		}
