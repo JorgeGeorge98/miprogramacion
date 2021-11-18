@@ -1,0 +1,18 @@
+<?xml version='1' encoding='UTF-8' ?>
+	<personajes>
+		<Winston>	
+			<hab1>Jump Pack</hab1>
+			<hab2>Barrier Protection</hab2>
+			<hab3>Primal Rage</hab3>
+		</Winston>
+		<Tracer>	
+			<hab1>Blink</hab1>
+			<hab2>Recall</hab2>
+			<hab3>Pulse Bomb</hab3>
+		</Tracer>
+		<Genji>	
+			<hab1>Deflect</hab1>
+			<hab2>Swift Strike</hab2>
+			<hab3>Dragonblade</hab3>
+		</Genji>
+	</personajes>
