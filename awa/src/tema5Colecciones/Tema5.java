@@ -1,4 +1,4 @@
-package tema5;
+package tema5Colecciones;
 
 import java.io.File;
 import java.io.FileOutputStream;
