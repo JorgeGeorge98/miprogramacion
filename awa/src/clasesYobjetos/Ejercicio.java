@@ -30,7 +30,7 @@ public class Ejercicio {
 		
 		mitsubishi.vender();
 		
-		for(int i=1; i<163; i++) {
+		for(int i=0; i<163; i++) {
 			mitsubishi.kmRodado();
 		}
 		
