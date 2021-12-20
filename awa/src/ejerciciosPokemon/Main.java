@@ -1,6 +1,7 @@
 package ejerciciosPokemon;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -26,6 +27,9 @@ public class Main {
 		Ataque confusion = new Ataque("Confusion", "Psiquico", 55);
 		Ataque picvenenoso = new Ataque("Picotazo Venenoso", "Veneno", 50);
 		Ataque golpeka = new Ataque("Golpe Karate", "Lucha", 60);
+		Ataque lanzrocas = new Ataque("Lanza Rocas", "Roca", 55);
+		Ataque terremoto = new Ataque("Terremoto", "Tierra", 70);
+		Ataque girobola = new Ataque("Giro Bola", "Acero", 55);
 		
 		
 		//POKEMONS
@@ -85,99 +89,150 @@ public class Main {
 		mankey.ataques.add(derribo);
 		mankey.ataques.add(golpeka);
 		
+		Pokemon onix = new Pokemon("Onix", "Roca", 400);
+		onix.ataques = new ArrayList<Ataque>();
+		onix.ataques.add(derribo);
+		onix.ataques.add(lanzrocas);
+		onix.ataques.add(terremoto);
+		onix.ataques.add(girobola);		
 
 		//COMBATE
 		
+		Entrenador gary = new Entrenador("Gary");
+		gary.equipo = new ArrayList<Pokemon>();
+		
+		Entrenador yo = new Entrenador("Rojo");
+		yo.equipo = new ArrayList<Pokemon>();
+		
 		Pokemon pokeElegido = new Pokemon();
+		
 		Pokemon pokeOponente = new Pokemon();
 		
-		System.out.println("-----BIENVENIDO AL COMBATE POKEMON-----\n");
-		System.out.println("Que Pokemon quieres utilizar?\n\n(1) Charmander\n(2) Bulbasaur\n(3) Squirtle\n(4) Pikachu\n(5) Caterpie\n(6) Ekans\n(7) Pidgey\n(8) Mankey\n\nElije aqui: ");
-		int eleccion = scan.nextInt();
-		System.out.println("\nContra que Pokemon quieres combatir?\n\n(1) Charmander\n(2) Bulbasaur\n(3) Squirtle\n(4) Pikachu\n(5) Caterpie\n(6) Ekans\n(7) Pidgey\n(8) Mankey\n\nElije aqui: ");
-		int oponente = scan.nextInt();
+		//Selector de Pokemons
 		
-		
-		switch(eleccion) {
-		case 1:
-			pokeElegido = charmander;
-			break;
-		case 2:
-			pokeElegido = bulbasaur;
-			break;
-		case 3:
-			pokeElegido = squirtle;
-			break;
-		case 4:
-			pokeElegido = pikachu;
-			break;
-		case 5:
-			pokeElegido = caterpie;
-			break;
-		case 6:
-			pokeElegido = ekans;
-			break;
-		case 7:
-			pokeElegido = pidgey;
-			break;
-		case 8:
-			pokeElegido = mankey;
-			break;
+		for (int i=0; i<6; i++) {
+			System.out.println("Crea tu equipo, elije un Pokemon\n\n(1) Charmander\n(2) Bulbasaur\n(3) Squirtle\n(4) Pikachu\n(5) Caterpie\n(6) Ekans\n(7) Pidgey\n(8) Mankey\n(9) Onix\nElije aqui: ");
+			int eleccion = scan.nextInt();
+			
+			switch(eleccion) {
+			case 1:
+				pokeElegido = charmander;
+				break;
+			case 2:
+				pokeElegido = bulbasaur;
+				break;
+			case 3:
+				pokeElegido = squirtle;
+				break;
+			case 4:
+				pokeElegido = pikachu;
+				break;
+			case 5:
+				pokeElegido = caterpie;
+				break;
+			case 6:
+				pokeElegido = ekans;
+				break;
+			case 7:
+				pokeElegido = pidgey;
+				break;
+			case 8:
+				pokeElegido = mankey;
+				break;
+			case 9:
+				pokeElegido = onix;
+				break;
+			}
+			
+			yo.equipo.add(pokeElegido);
 		}
 		
-		switch(oponente) {
-		case 1:
-			pokeOponente = charmander;
-			break;
-		case 2:
-			pokeOponente = bulbasaur;
-			break;
-		case 3:
-			pokeOponente = squirtle;
-			break;
-		case 4:
-			pokeOponente = pikachu;
-			break;
-		case 5:
-			pokeOponente = caterpie;
-			break;
-		case 6:
-			pokeOponente = ekans;
-			break;
-		case 7:
-			pokeOponente = pidgey;
-			break;
-		case 8:
-			pokeOponente = mankey;
-			break;
+		System.out.println("Tu equipo es:");
+		for (int i=0; i<6; i++) {
+			System.out.print(yo.equipo.get(i).nombre+" ");
 		}
-		
-		System.out.println("\n------------------------------------------------------------\n\nUn "+pokeOponente.nombre+" salvaje ha aparecido entre la hierba!");
 		scan.nextLine();
 		
+		//Set Pokemons Rivales
+		
+		for (int i=0; i<6; i++) {
+			
+			int randomPokemon = (int)(Math.random()*9+1);
+			
+			switch(randomPokemon) {
+			case 1:
+				pokeOponente = charmander;
+				break;
+			case 2:
+				pokeOponente = bulbasaur;
+				break;
+			case 3:
+				pokeOponente = squirtle;
+				break;
+			case 4:
+				pokeOponente = pikachu;
+				break;
+			case 5:
+				pokeOponente = caterpie;
+				break;
+			case 6:
+				pokeOponente = ekans;
+				break;
+			case 7:
+				pokeOponente = pidgey;
+				break;
+			case 8:
+				pokeOponente = mankey;
+				break;
+			case 9:
+				pokeElegido = onix;
+				break;
+			}
+			
+			gary.equipo.add(pokeOponente);
+		}
+		
+		System.out.println("\n\nEl equipo rival es: ");
+		for (int i=0; i<6; i++) {
+			System.out.print(gary.equipo.get(i).nombre+" ");
+		}
+		scan.nextLine();
+		
+		//COMBATE 6v6
+		
+		boolean w;
+		
+		System.out.println("\n\n\n----------COMBATE POKEMON----------");
+		System.out.println(gary.nombre+" te ha retado a un combate!\n");
+		
 		int i = 1;
-		while(pokeElegido.vida > 0 && pokeOponente.vida > 0) {
+		while(yo.equipo.size()>0 && gary.equipo.size()>0) {
+			System.out.println(yo.equipo.get(0).nombre+" yo te elijo!");
+			System.out.println(gary.nombre+": "+gary.equipo.get(0).nombre+" yo te elijo!");
+			
 			if(i%2 != 0) {
-				System.out.println("Elige un ataque (0) "+pokeElegido.ataques.get(0).nombre+" (1) "+pokeElegido.ataques.get(1).nombre+" (2) "+pokeElegido.ataques.get(2).nombre+" (3) "+pokeElegido.ataques.get(3).nombre+" : ");
+				System.out.println("Elige un ataque (0) "+yo.equipo.get(0).ataques.get(0).nombre+" (1) "+yo.equipo.get(0).ataques.get(1).nombre+" (2) "+yo.equipo.get(0).ataques.get(2).nombre+" (3) "+yo.equipo.get(0).ataques.get(3).nombre+" : ");
 				int atkEle = scan.nextInt();
-				pokeOponente.checkAtk(pokeElegido, pokeElegido.ataques.get(atkEle));
+				gary.equipo.get(0).checkAtk(yo.equipo.get(0), yo.equipo.get(0).ataques.get(atkEle));
 			} else {
 				int random = (int)(Math.random()*3+0); 
-				pokeElegido.checkAtk(pokeOponente, pokeOponente.ataques.get(random));
+				yo.equipo.get(0).checkAtk(gary.equipo.get(0), gary.equipo.get(0).ataques.get(random));
 			}
 			
-			if(pokeElegido.vida < 0) {
-				System.out.println(pokeElegido.nombre+" se ha ido con diosito.");
+			if(yo.equipo.get(0).vida < 0) {
+				System.out.println(yo.equipo.get(0).nombre+" se ha ido con diosito.");
+				yo.equipo.remove(0);
 			} 
-			
-			if(pokeOponente.vida < 0) {
-				System.out.println(pokeOponente.nombre+" se ha ido con diosito.");
+			if(gary.equipo.get(0).vida < 0) {
+				System.out.println(gary.equipo.get(0).nombre+" se ha ido con diosito.");
+				yo.equipo.remove(0);
 			}
 		i++;
+			
 		}
-	
-		
+
 		}
+			
+}
 		
-	}
 

@@ -153,6 +153,16 @@ public class Pokemon {
 		}
 	}
 	
+	public void roca (Pokemon poke, Ataque atk) {
+		if(atk.tipo == "Acero" | atk.tipo == "Agua" | atk.tipo == "Lucha"| atk.tipo == "Planta" | atk.tipo == "Tierra") {	
+			this.recibeAtkEficaz(poke, atk);
+		} else if (atk.tipo == "Fuego" | atk.tipo == "Normal" | atk.tipo == "Veneno" | atk.tipo == "Volador") {
+			this.recibeAtkPoco(poke, atk);
+		} else {
+			this.recibeAtk(poke, atk);
+		}
+	}
+	
 	
 	
 	//METODO CHECK ATAQUE
@@ -176,6 +186,8 @@ public class Pokemon {
 			this.normal(poke, atk);
 		} else if (this.tipo == "Lucha") {
 			this.lucha(poke, atk);
+		} else if (this.tipo == "Roca") {
+			this.roca(poke, atk);
 		}
 	}
 	
