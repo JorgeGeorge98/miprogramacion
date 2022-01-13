@@ -1,4 +1,4 @@
-package ejerciciosPokemon;
+ package ejerciciosPokemon;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,28 +33,28 @@ public class Main {
 		
 		
 		//POKEMONS
-		Pokemon charmander = new Pokemon("Charmander", "Fuego", 350);
+		Pokemon charmander = new Pokemon("Charmander", "Fuego", 200);
 		charmander.ataques = new ArrayList<Ataque>();
 		charmander.ataques.add(ascuas);
 		charmander.ataques.add(placaje);
 		charmander.ataques.add(coligneo);
 		charmander.ataques.add(cascada);
 
-		Pokemon bulbasaur = new Pokemon("Bulbasaur", "Planta", 350);
+		Pokemon bulbasaur = new Pokemon("Bulbasaur", "Planta", 200);
 		bulbasaur.ataques = new ArrayList<Ataque>();
 		bulbasaur.ataques.add(placaje);
 		bulbasaur.ataques.add(latcepa);
 		bulbasaur.ataques.add(hoafi);
 		bulbasaur.ataques.add(derribo);
 		
-		Pokemon squirtle = new Pokemon("Squirtle", "Agua", 350);
+		Pokemon squirtle = new Pokemon("Squirtle", "Agua", 200);
 		squirtle.ataques = new ArrayList<Ataque>();
 		squirtle.ataques.add(placaje);
 		squirtle.ataques.add(cascada);
 		squirtle.ataques.add(burbuja);
 		squirtle.ataques.add(mordisco);
 		
-		Pokemon pikachu = new Pokemon("Pikachu", "Electrico", 300);
+		Pokemon pikachu = new Pokemon("Pikachu", "Electrico", 200);
 		pikachu.ataques = new ArrayList<Ataque>();
 		pikachu.ataques.add(placaje);
 		pikachu.ataques.add(impactrueno);
@@ -68,28 +68,28 @@ public class Main {
 		caterpie.ataques.add(tornado);
 		caterpie.ataques.add(confusion);
 		
-		Pokemon ekans = new Pokemon("Ekans", "Veneno", 250);
+		Pokemon ekans = new Pokemon("Ekans", "Veneno", 200);
 		ekans.ataques = new ArrayList<Ataque>();
 		ekans.ataques.add(placaje);
 		ekans.ataques.add(picadura);
 		ekans.ataques.add(mordisco);
 		ekans.ataques.add(picvenenoso);
 		
-		Pokemon pidgey = new Pokemon("Pidgey", "Volador", 250);
+		Pokemon pidgey = new Pokemon("Pidgey", "Volador", 200);
 		pidgey.ataques = new ArrayList<Ataque>();
 		pidgey.ataques.add(placaje);
 		pidgey.ataques.add(tornado);
 		pidgey.ataques.add(derribo);
 		pidgey.ataques.add(picvenenoso);
 		
-		Pokemon mankey = new Pokemon("Mankey", "Lucha", 300);
+		Pokemon mankey = new Pokemon("Mankey", "Lucha", 200);
 		mankey.ataques = new ArrayList<Ataque>();
 		mankey.ataques.add(placaje);
 		mankey.ataques.add(mordisco);
 		mankey.ataques.add(derribo);
 		mankey.ataques.add(golpeka);
 		
-		Pokemon onix = new Pokemon("Onix", "Roca", 400);
+		Pokemon onix = new Pokemon("Onix", "Roca", 200);
 		onix.ataques = new ArrayList<Ataque>();
 		onix.ataques.add(derribo);
 		onix.ataques.add(lanzrocas);
@@ -200,39 +200,46 @@ public class Main {
 		
 		//COMBATE 6v6
 		
-		boolean w;
-		
 		System.out.println("\n\n\n----------COMBATE POKEMON----------");
 		System.out.println(gary.nombre+" te ha retado a un combate!\n");
+	
+			
+		System.out.println(yo.equipo.get(0).nombre+" yo te elijo!");
+		System.out.println(gary.nombre+": "+gary.equipo.get(0).nombre+" yo te elijo!");
+			
+		int i = 0;
 		
-		int i = 1;
-		while(yo.equipo.size()>0 && gary.equipo.size()>0) {
-			System.out.println(yo.equipo.get(0).nombre+" yo te elijo!");
-			System.out.println(gary.nombre+": "+gary.equipo.get(0).nombre+" yo te elijo!");
-			
-			if(i%2 != 0) {
-				System.out.println("Elige un ataque (0) "+yo.equipo.get(0).ataques.get(0).nombre+" (1) "+yo.equipo.get(0).ataques.get(1).nombre+" (2) "+yo.equipo.get(0).ataques.get(2).nombre+" (3) "+yo.equipo.get(0).ataques.get(3).nombre+" : ");
-				int atkEle = scan.nextInt();
-				gary.equipo.get(0).checkAtk(yo.equipo.get(0), yo.equipo.get(0).ataques.get(atkEle));
-			} else {
-				int random = (int)(Math.random()*3+0); 
-				yo.equipo.get(0).checkAtk(gary.equipo.get(0), gary.equipo.get(0).ataques.get(random));
+			while(yo.equipo.size()>0 && gary.equipo.size()>0) {
+				
+				if(i%2 == 0) {
+					System.out.println("Elige un ataque (0) "+yo.equipo.get(0).ataques.get(0).nombre+" (1) "+yo.equipo.get(0).ataques.get(1).nombre+" (2) "+yo.equipo.get(0).ataques.get(2).nombre+" (3) "+yo.equipo.get(0).ataques.get(3).nombre+" : ");
+					int atkEle = scan.nextInt();
+					gary.equipo.get(0).checkAtk(yo.equipo.get(0), yo.equipo.get(0).ataques.get(atkEle));
+				} else {
+					int random = (int)(Math.random()*3+0); 
+					yo.equipo.get(0).checkAtk(gary.equipo.get(0), gary.equipo.get(0).ataques.get(random));
+				}
+				
+				if(yo.equipo.get(0).vida < 0) {
+					System.out.println(yo.equipo.get(0).nombre+" se ha ido con diosito.");
+					yo.equipo.remove(0);
+					System.out.println(yo.equipo.get(0).nombre+" yo te elijo!");
+				} else if (gary.equipo.get(0).vida < 0) {
+					System.out.println(gary.equipo.get(0).nombre+" se ha ido con diosito.");
+					gary.equipo.remove(0);
+					System.out.println(gary.nombre+": "+gary.equipo.get(0).nombre+" yo te elijo!");
+				} else {
+					i++;
+				}
 			}
 			
-			if(yo.equipo.get(0).vida < 0) {
-				System.out.println(yo.equipo.get(0).nombre+" se ha ido con diosito.");
-				yo.equipo.remove(0);
-			} 
-			if(gary.equipo.get(0).vida < 0) {
-				System.out.println(gary.equipo.get(0).nombre+" se ha ido con diosito.");
-				yo.equipo.remove(0);
+			if(yo.equipo.size()==0) {
+				System.out.println("Has perdido.");
+			} else if (gary.equipo.size()==0) {
+				System.out.println("Has ganado");
 			}
-		i++;
-			
-		}
+		
 
-		}
-			
+	}
 }
-		
-
+			
