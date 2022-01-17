@@ -11,85 +11,85 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		
 		//ATAQUES
-		Ataque ascuas = new Ataque("Ascuas", "Fuego", 60);
-		Ataque placaje = new Ataque("Placaje", "Normal", 40);
-		Ataque coligneo = new Ataque("Colmillo Igneo", "Fuego", 70);
-		Ataque cascada = new Ataque("Cascada", "Agua", 70);
-		Ataque latcepa = new Ataque("Latigo Cepa", "Planta", 60);
-		Ataque hoafi = new Ataque("Hoja Afilada", "Planta", 70);
-		Ataque derribo = new Ataque("Derribo", "Normal", 70);
-		Ataque burbuja = new Ataque("Burbuja", "Agua", 40);
-		Ataque mordisco = new Ataque("Mordisco", "Siniestro", 60);
-		Ataque impactrueno = new Ataque("Impactrueno", "Electrico", 40);
-		Ataque rayo = new Ataque("Rayo", "Electrico", 70);
-		Ataque picadura = new Ataque("Picadura", "Bicho", 40);
-		Ataque tornado = new Ataque("Tornado", "Volador", 70);
-		Ataque confusion = new Ataque("Confusion", "Psiquico", 55);
-		Ataque picvenenoso = new Ataque("Picotazo Venenoso", "Veneno", 50);
-		Ataque golpeka = new Ataque("Golpe Karate", "Lucha", 60);
-		Ataque lanzrocas = new Ataque("Lanza Rocas", "Roca", 55);
-		Ataque terremoto = new Ataque("Terremoto", "Tierra", 70);
-		Ataque girobola = new Ataque("Giro Bola", "Acero", 55);
+		Ataque ascuas = new Ataque("Ascuas", Tipo.fuego, 60);
+		Ataque placaje = new Ataque("Placaje", Tipo.normal, 40);
+		Ataque coligneo = new Ataque("Colmillo Igneo", Tipo.fuego, 70);
+		Ataque cascada = new Ataque("Cascada", Tipo.agua, 70);
+		Ataque latcepa = new Ataque("Latigo Cepa", Tipo.planta, 60);
+		Ataque hoafi = new Ataque("Hoja Afilada", Tipo.planta, 70);
+		Ataque derribo = new Ataque("Derribo", Tipo.normal, 70);
+		Ataque burbuja = new Ataque("Burbuja", Tipo.agua, 40);
+		Ataque mordisco = new Ataque("Mordisco", Tipo.siniestro, 60);
+		Ataque impactrueno = new Ataque("Impactrueno", Tipo.electrico, 40);
+		Ataque rayo = new Ataque("Rayo", Tipo.electrico, 70);
+		Ataque picadura = new Ataque("Picadura", Tipo.bicho, 40);
+		Ataque tornado = new Ataque("Tornado", Tipo.volador, 70);
+		Ataque confusion = new Ataque("Confusion", Tipo.psiquico, 55);
+		Ataque picvenenoso = new Ataque("Picotazo Venenoso", Tipo.veneno, 50);
+		Ataque golpeka = new Ataque("Golpe Karate", Tipo.lucha, 60);
+		Ataque lanzrocas = new Ataque("Lanza Rocas", Tipo.roca, 55);
+		Ataque terremoto = new Ataque("Terremoto", Tipo.tierra, 70);
+		Ataque girobola = new Ataque("Giro Bola", Tipo.acero, 55);
 		
 		
 		//POKEMONS
-		Pokemon charmander = new Pokemon("Charmander", "Fuego", 200);
+		Pokemon charmander = new Pokemon("Charmander", Tipo.fuego, 200);
 		charmander.ataques = new ArrayList<Ataque>();
 		charmander.ataques.add(ascuas);
 		charmander.ataques.add(placaje);
 		charmander.ataques.add(coligneo);
 		charmander.ataques.add(cascada);
 
-		Pokemon bulbasaur = new Pokemon("Bulbasaur", "Planta", 200);
+		Pokemon bulbasaur = new Pokemon("Bulbasaur", Tipo.planta, 200);
 		bulbasaur.ataques = new ArrayList<Ataque>();
 		bulbasaur.ataques.add(placaje);
 		bulbasaur.ataques.add(latcepa);
 		bulbasaur.ataques.add(hoafi);
 		bulbasaur.ataques.add(derribo);
 		
-		Pokemon squirtle = new Pokemon("Squirtle", "Agua", 200);
+		Pokemon squirtle = new Pokemon("Squirtle", Tipo.agua, 200);
 		squirtle.ataques = new ArrayList<Ataque>();
 		squirtle.ataques.add(placaje);
 		squirtle.ataques.add(cascada);
 		squirtle.ataques.add(burbuja);
 		squirtle.ataques.add(mordisco);
 		
-		Pokemon pikachu = new Pokemon("Pikachu", "Electrico", 200);
+		Pokemon pikachu = new Pokemon("Pikachu", Tipo.electrico, 200);
 		pikachu.ataques = new ArrayList<Ataque>();
 		pikachu.ataques.add(placaje);
 		pikachu.ataques.add(impactrueno);
 		pikachu.ataques.add(rayo);
 		pikachu.ataques.add(derribo);
 		
-		Pokemon caterpie = new Pokemon("Caterpie", "Bicho", 200);
+		Pokemon caterpie = new Pokemon("Caterpie", Tipo.bicho, 200);
 		caterpie.ataques = new ArrayList<Ataque>();
 		caterpie.ataques.add(placaje);
 		caterpie.ataques.add(picadura);
 		caterpie.ataques.add(tornado);
 		caterpie.ataques.add(confusion);
 		
-		Pokemon ekans = new Pokemon("Ekans", "Veneno", 200);
+		Pokemon ekans = new Pokemon("Ekans", Tipo.veneno, 200);
 		ekans.ataques = new ArrayList<Ataque>();
 		ekans.ataques.add(placaje);
 		ekans.ataques.add(picadura);
 		ekans.ataques.add(mordisco);
 		ekans.ataques.add(picvenenoso);
 		
-		Pokemon pidgey = new Pokemon("Pidgey", "Volador", 200);
+		Pokemon pidgey = new Pokemon("Pidgey", Tipo.volador, 200);
 		pidgey.ataques = new ArrayList<Ataque>();
 		pidgey.ataques.add(placaje);
 		pidgey.ataques.add(tornado);
 		pidgey.ataques.add(derribo);
 		pidgey.ataques.add(picvenenoso);
 		
-		Pokemon mankey = new Pokemon("Mankey", "Lucha", 200);
+		Pokemon mankey = new Pokemon("Mankey", Tipo.lucha, 200);
 		mankey.ataques = new ArrayList<Ataque>();
 		mankey.ataques.add(placaje);
 		mankey.ataques.add(mordisco);
 		mankey.ataques.add(derribo);
 		mankey.ataques.add(golpeka);
 		
-		Pokemon onix = new Pokemon("Onix", "Roca", 200);
+		Pokemon onix = new Pokemon("Onix", Tipo.roca, 200);
 		onix.ataques = new ArrayList<Ataque>();
 		onix.ataques.add(derribo);
 		onix.ataques.add(lanzrocas);
@@ -116,23 +116,23 @@ public class Main {
 			
 			switch(eleccion) {
 			case 1:
-				pokeElegido = new Pokemon("Charmander", "Fuego", 200);
+				pokeElegido = new Pokemon("Charmander", Tipo.fuego, 200);
 				pokeElegido.ataques = new ArrayList<Ataque>();
 				pokeElegido.ataques.add(ascuas);
 				pokeElegido.ataques.add(placaje);
 				pokeElegido.ataques.add(coligneo);
-				pokeElegido.ataques.add(cascada);;
+				pokeElegido.ataques.add(cascada);
 				break;
 			case 2:
-				pokeElegido = new Pokemon("Bulbasaur", "Planta", 200);
+				pokeElegido = new Pokemon("Bulbasaur", Tipo.planta, 200);
 				pokeElegido.ataques = new ArrayList<Ataque>();
 				pokeElegido.ataques.add(placaje);
 				pokeElegido.ataques.add(latcepa);
 				pokeElegido.ataques.add(hoafi);
-				pokeElegido.ataques.add(derribo);;
+				pokeElegido.ataques.add(derribo);
 				break;
 			case 3:
-				pokeElegido = new Pokemon("Squirtle", "Agua", 200);
+				pokeElegido = new Pokemon("Squirtle", Tipo.agua, 200);
 				pokeElegido.ataques = new ArrayList<Ataque>();
 				pokeElegido.ataques.add(placaje);
 				pokeElegido.ataques.add(cascada);
@@ -140,7 +140,7 @@ public class Main {
 				pokeElegido.ataques.add(mordisco);
 				break;
 			case 4:
-				pokeElegido = new Pokemon("Pikachu", "Electrico", 200);
+				pokeElegido = new Pokemon("Pikachu", Tipo.electrico, 200);
 				pokeElegido.ataques = new ArrayList<Ataque>();
 				pokeElegido.ataques.add(placaje);
 				pokeElegido.ataques.add(impactrueno);
@@ -148,7 +148,7 @@ public class Main {
 				pokeElegido.ataques.add(derribo);
 				break;
 			case 5:
-				pokeElegido = new Pokemon("Caterpie", "Bicho", 200);
+				pokeElegido = new Pokemon("Caterpie", Tipo.bicho, 200);
 				pokeElegido.ataques = new ArrayList<Ataque>();
 				pokeElegido.ataques.add(placaje);
 				pokeElegido.ataques.add(picadura);
@@ -156,7 +156,7 @@ public class Main {
 				pokeElegido.ataques.add(confusion);
 				break;
 			case 6:
-				pokeElegido = new Pokemon("Ekans", "Veneno", 200);
+				pokeElegido = new Pokemon("Ekans", Tipo.veneno, 200);
 				pokeElegido.ataques = new ArrayList<Ataque>();
 				pokeElegido.ataques.add(placaje);
 				pokeElegido.ataques.add(picadura);
@@ -164,7 +164,7 @@ public class Main {
 				pokeElegido.ataques.add(picvenenoso);
 				break;
 			case 7:
-				pokeElegido = new Pokemon("Pidgey", "Volador", 200);
+				pokeElegido = new Pokemon("Pidgey", Tipo.volador, 200);
 				pokeElegido.ataques = new ArrayList<Ataque>();
 				pokeElegido.ataques.add(placaje);
 				pokeElegido.ataques.add(tornado);
@@ -172,7 +172,7 @@ public class Main {
 				pokeElegido.ataques.add(picvenenoso);
 				break;
 			case 8:
-				pokeElegido = new Pokemon("Mankey", "Lucha", 200);
+				pokeElegido = new Pokemon("Mankey", Tipo.lucha, 200);
 				pokeElegido.ataques = new ArrayList<Ataque>();
 				pokeElegido.ataques.add(placaje);
 				pokeElegido.ataques.add(mordisco);
@@ -180,7 +180,7 @@ public class Main {
 				pokeElegido.ataques.add(golpeka);
 				break;
 			case 9:
-				pokeElegido = new Pokemon("Onix", "Roca", 200);
+				pokeElegido = new Pokemon("Onix", Tipo.roca, 200);
 				pokeElegido.ataques = new ArrayList<Ataque>();
 				pokeElegido.ataques.add(derribo);
 				pokeElegido.ataques.add(lanzrocas);
@@ -206,7 +206,7 @@ public class Main {
 			
 			switch(randomPokemon) {
 			case 1:
-				pokeOponente = new Pokemon("Charmander", "Fuego", 200);
+				pokeOponente = new Pokemon("Charmander", Tipo.fuego, 200);
 				pokeOponente.ataques = new ArrayList<Ataque>();
 				pokeOponente.ataques.add(ascuas);
 				pokeOponente.ataques.add(placaje);
@@ -214,7 +214,7 @@ public class Main {
 				pokeOponente.ataques.add(cascada);;
 				break;
 			case 2:
-				pokeOponente = new Pokemon("Bulbasaur", "Planta", 200);
+				pokeOponente = new Pokemon("Bulbasaur", Tipo.planta, 200);
 				pokeOponente.ataques = new ArrayList<Ataque>();
 				pokeOponente.ataques.add(placaje);
 				pokeOponente.ataques.add(latcepa);
@@ -222,7 +222,7 @@ public class Main {
 				pokeOponente.ataques.add(derribo);;
 				break;
 			case 3:
-				pokeOponente = new Pokemon("Squirtle", "Agua", 200);
+				pokeOponente = new Pokemon("Squirtle", Tipo.agua, 200);
 				pokeOponente.ataques = new ArrayList<Ataque>();
 				pokeOponente.ataques.add(placaje);
 				pokeOponente.ataques.add(cascada);
@@ -230,7 +230,7 @@ public class Main {
 				pokeOponente.ataques.add(mordisco);
 				break;
 			case 4:
-				pokeOponente = new Pokemon("Pikachu", "Electrico", 200);
+				pokeOponente = new Pokemon("Pikachu", Tipo.electrico, 200);
 				pokeOponente.ataques = new ArrayList<Ataque>();
 				pokeOponente.ataques.add(placaje);
 				pokeOponente.ataques.add(impactrueno);
@@ -238,7 +238,7 @@ public class Main {
 				pokeOponente.ataques.add(derribo);
 				break;
 			case 5:
-				pokeOponente = new Pokemon("Caterpie", "Bicho", 200);
+				pokeOponente = new Pokemon("Caterpie", Tipo.bicho, 200);
 				pokeOponente.ataques = new ArrayList<Ataque>();
 				pokeOponente.ataques.add(placaje);
 				pokeOponente.ataques.add(picadura);
@@ -246,7 +246,7 @@ public class Main {
 				pokeOponente.ataques.add(confusion);
 				break;
 			case 6:
-				pokeOponente = new Pokemon("Ekans", "Veneno", 200);
+				pokeOponente = new Pokemon("Ekans", Tipo.veneno, 200);
 				pokeOponente.ataques = new ArrayList<Ataque>();
 				pokeOponente.ataques.add(placaje);
 				pokeOponente.ataques.add(picadura);
@@ -254,7 +254,7 @@ public class Main {
 				pokeOponente.ataques.add(picvenenoso);
 				break;
 			case 7:
-				pokeOponente = new Pokemon("Pidgey", "Volador", 200);
+				pokeOponente = new Pokemon("Pidgey", Tipo.volador, 200);
 				pokeOponente.ataques = new ArrayList<Ataque>();
 				pokeOponente.ataques.add(placaje);
 				pokeOponente.ataques.add(tornado);
@@ -262,7 +262,7 @@ public class Main {
 				pokeOponente.ataques.add(picvenenoso);
 				break;
 			case 8:
-				pokeOponente = new Pokemon("Mankey", "Lucha", 200);
+				pokeOponente = new Pokemon("Mankey", Tipo.lucha, 200);
 				pokeOponente.ataques = new ArrayList<Ataque>();
 				pokeOponente.ataques.add(placaje);
 				pokeOponente.ataques.add(mordisco);
@@ -270,7 +270,7 @@ public class Main {
 				pokeOponente.ataques.add(golpeka);
 				break;
 			case 9:
-				pokeOponente = new Pokemon("Onix", "Roca", 200);
+				pokeOponente = new Pokemon("Onix", Tipo.roca, 200);
 				pokeOponente.ataques = new ArrayList<Ataque>();
 				pokeOponente.ataques.add(derribo);
 				pokeOponente.ataques.add(lanzrocas);

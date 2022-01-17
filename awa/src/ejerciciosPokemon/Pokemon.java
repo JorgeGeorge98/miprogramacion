@@ -11,14 +11,14 @@ public class Pokemon {
 	
 	String nombre;
 	String lore;
-	String tipo;
+	Tipo tipo;
 	int fuerza;
 	int vida;
 	ArrayList<Ataque> ataques;
-	
+
 	//CONSTRUCTOR
 	
-	public Pokemon(String nombre, String tipo, int vida) {
+	public Pokemon(String nombre, Tipo tipo, int vida) {
 		
 		this.nombre = nombre;
 		this.tipo = tipo;
@@ -66,9 +66,9 @@ public class Pokemon {
 	//METODOS EFECTIVIDAD
 	
 	public void planta (Pokemon poke, Ataque atk) {
-		if(atk.tipo == "Fuego" | atk.tipo == "Hielo" | atk.tipo == "Veneno" | atk.tipo == "Volador" | atk.tipo == "Bicho") {	
+		if(atk.tipo == Tipo.fuego | atk.tipo == Tipo.hielo | atk.tipo == Tipo.veneno | atk.tipo == Tipo.volador | atk.tipo == Tipo.bicho) {	
 			this.recibeAtkEficaz(poke, atk);
-		} else if (atk.tipo == "Agua" | atk.tipo == "Electrico" | atk.tipo == "Planta" | atk.tipo == "Tierra") {
+		} else if (atk.tipo == Tipo.agua | atk.tipo == Tipo.electrico | atk.tipo == Tipo.planta | atk.tipo == Tipo.tierra) {
 			this.recibeAtkPoco(poke, atk);
 		} else {
 			this.recibeAtk(poke, atk);
@@ -76,9 +76,9 @@ public class Pokemon {
 	}
 	
 	public void fuego (Pokemon poke, Ataque atk) {
-		if(atk.tipo == "Agua" | atk.tipo == "Roca" | atk.tipo == "Tierra") {	
+		if(atk.tipo == Tipo.agua | atk.tipo == Tipo.roca | atk.tipo == Tipo.tierra) {	
 			this.recibeAtkEficaz(poke, atk);
-		} else if (atk.tipo == "Acero" | atk.tipo == "Bicho" | atk.tipo == "Roca" | atk.tipo == "Tierra" | atk.tipo == "Fuego" | atk.tipo == "Hada" | atk.tipo == "Hielo" | atk.tipo == "Planta") {
+		} else if (atk.tipo == Tipo.acero | atk.tipo == Tipo.bicho | atk.tipo == Tipo.roca | atk.tipo == Tipo.tierra | atk.tipo == Tipo.fuego | atk.tipo == Tipo.hada | atk.tipo == Tipo.hielo | atk.tipo == Tipo.planta) {
 			this.recibeAtkPoco(poke, atk);
 		} else {
 			this.recibeAtk(poke, atk);
@@ -86,9 +86,9 @@ public class Pokemon {
 	}
 	
 	public void bicho (Pokemon poke, Ataque atk) {
-		if(atk.tipo == "Fuego" | atk.tipo == "Roca" | atk.tipo == "Volador") {	
+		if(atk.tipo == Tipo.fuego | atk.tipo == Tipo.roca | atk.tipo == Tipo.volador) {	
 			this.recibeAtkEficaz(poke, atk);
-		} else if (atk.tipo == "Lucha" | atk.tipo == "Planta" | atk.tipo == "Tierra") {
+		} else if (atk.tipo == Tipo.lucha | atk.tipo == Tipo.planta | atk.tipo == Tipo.tierra) {
 			this.recibeAtkPoco(poke, atk);
 		} else {
 			this.recibeAtk(poke, atk);
@@ -96,9 +96,9 @@ public class Pokemon {
 	}
 	
 	public void volador (Pokemon poke, Ataque atk) {
-		if(atk.tipo == "Electrico" | atk.tipo == "Hielo" | atk.tipo == "Roca") {	
+		if(atk.tipo == Tipo.electrico | atk.tipo == Tipo.hielo | atk.tipo == Tipo.roca) {	
 			this.recibeAtkEficaz(poke, atk);
-		} else if (atk.tipo == "Bicho" | atk.tipo == "Lucha" | atk.tipo == "Planta") {
+		} else if (atk.tipo == Tipo.bicho | atk.tipo == Tipo.lucha | atk.tipo == Tipo.planta) {
 			this.recibeAtkPoco(poke, atk);
 		} else {
 			this.recibeAtk(poke, atk);
@@ -106,9 +106,9 @@ public class Pokemon {
 	}
 	
 	public void agua (Pokemon poke, Ataque atk) {
-		if(atk.tipo == "Electrico" | atk.tipo == "Planta") {	
+		if(atk.tipo == Tipo.electrico | atk.tipo == Tipo.planta) {	
 			this.recibeAtkEficaz(poke, atk);
-		} else if (atk.tipo == "Agua" | atk.tipo == "Acero" | atk.tipo == "Fuego" | atk.tipo == "Hielo") {
+		} else if (atk.tipo == Tipo.agua | atk.tipo == Tipo.acero | atk.tipo == Tipo.fuego | atk.tipo == Tipo.hielo) {
 			this.recibeAtkPoco(poke, atk);
 		} else {
 			this.recibeAtk(poke, atk);
@@ -116,9 +116,9 @@ public class Pokemon {
 	}
 	
 	public void electrico (Pokemon poke, Ataque atk) {
-		if(atk.tipo == "Tierra") {	
+		if(atk.tipo == Tipo.tierra) {	
 			this.recibeAtkEficaz(poke, atk);
-		} else if (atk.tipo == "Volador" | atk.tipo == "Electrico" | atk.tipo == "Acero") {
+		} else if (atk.tipo == Tipo.volador | atk.tipo == Tipo.electrico | atk.tipo == Tipo.acero) {
 			this.recibeAtkPoco(poke, atk);
 		} else {
 			this.recibeAtk(poke, atk);
@@ -126,9 +126,9 @@ public class Pokemon {
 	}
 	
 	public void veneno (Pokemon poke, Ataque atk) {
-		if(atk.tipo == "Psiquico" | atk.tipo == "Tierra") {	
+		if(atk.tipo == Tipo.psiquico | atk.tipo == Tipo.tierra) {	
 			this.recibeAtkEficaz(poke, atk);
-		} else if (atk.tipo == "Bicho" | atk.tipo == "Hada" | atk.tipo == "Lucha" | atk.tipo == "Planta" | atk.tipo == "Veneno") {
+		} else if (atk.tipo == Tipo.bicho | atk.tipo == Tipo.hada | atk.tipo == Tipo.lucha | atk.tipo == Tipo.planta | atk.tipo == Tipo.veneno) {
 			this.recibeAtkPoco(poke, atk);
 		} else {
 			this.recibeAtk(poke, atk);
@@ -136,7 +136,7 @@ public class Pokemon {
 	}
 	
 	public void normal (Pokemon poke, Ataque atk) {
-		if(atk.tipo == "Lucha") {	
+		if(atk.tipo == Tipo.lucha) {	
 			this.recibeAtkEficaz(poke, atk);
 		} else {
 			this.recibeAtk(poke, atk);
@@ -144,9 +144,9 @@ public class Pokemon {
 	}
 	
 	public void lucha (Pokemon poke, Ataque atk) {
-		if(atk.tipo == "Hada" | atk.tipo == "Psiquico" | atk.tipo == "Volador") {	
+		if(atk.tipo == Tipo.hada | atk.tipo == Tipo.psiquico | atk.tipo == Tipo.volador) {	
 			this.recibeAtkEficaz(poke, atk);
-		} else if (atk.tipo == "Bicho" | atk.tipo == "Roca" | atk.tipo == "Siniestro") {
+		} else if (atk.tipo == Tipo.bicho | atk.tipo == Tipo.roca | atk.tipo == Tipo.siniestro) {
 			this.recibeAtkPoco(poke, atk);
 		} else {
 			this.recibeAtk(poke, atk);
@@ -154,9 +154,9 @@ public class Pokemon {
 	}
 	
 	public void roca (Pokemon poke, Ataque atk) {
-		if(atk.tipo == "Acero" | atk.tipo == "Agua" | atk.tipo == "Lucha"| atk.tipo == "Planta" | atk.tipo == "Tierra") {	
+		if(atk.tipo == Tipo.acero | atk.tipo == Tipo.agua | atk.tipo == Tipo.lucha| atk.tipo == Tipo.planta | atk.tipo == Tipo.tierra) {	
 			this.recibeAtkEficaz(poke, atk);
-		} else if (atk.tipo == "Fuego" | atk.tipo == "Normal" | atk.tipo == "Veneno" | atk.tipo == "Volador") {
+		} else if (atk.tipo == Tipo.fuego | atk.tipo == Tipo.normal | atk.tipo == Tipo.veneno | atk.tipo == Tipo.volador) {
 			this.recibeAtkPoco(poke, atk);
 		} else {
 			this.recibeAtk(poke, atk);
@@ -168,25 +168,25 @@ public class Pokemon {
 	//METODO CHECK ATAQUE
 	
 	public void checkAtk (Pokemon poke, Ataque atk) {
-		if (this.tipo == "Planta") {
+		if (this.tipo == Tipo.planta) {
 			this.planta(poke, atk);
-		} else if (this.tipo == "Fuego") {
+		} else if (this.tipo == Tipo.fuego) {
 			this.fuego(poke, atk);
-		} else if (this.tipo == "Bicho") {
+		} else if (this.tipo == Tipo.bicho) {
 			this.bicho(poke, atk);
-		} else if (this.tipo == "Volador") {
+		} else if (this.tipo == Tipo.volador) {
 			this.volador(poke, atk);
-		} else if (this.tipo == "Agua") {
+		} else if (this.tipo == Tipo.agua) {
 			this.agua(poke, atk);
-		} else if (this.tipo == "Electrico") {
+		} else if (this.tipo == Tipo.electrico) {
 			this.electrico(poke, atk);
-		} else if (this.tipo == "Veneno") {
+		} else if (this.tipo == Tipo.veneno) {
 			this.veneno(poke, atk);
-		} else if (this.tipo == "Normal") {
+		} else if (this.tipo == Tipo.normal) {
 			this.normal(poke, atk);
-		} else if (this.tipo == "Lucha") {
+		} else if (this.tipo == Tipo.lucha) {
 			this.lucha(poke, atk);
-		} else if (this.tipo == "Roca") {
+		} else if (this.tipo == Tipo.roca) {
 			this.roca(poke, atk);
 		}
 	}
