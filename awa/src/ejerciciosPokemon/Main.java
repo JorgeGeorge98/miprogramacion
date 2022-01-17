@@ -16,7 +16,7 @@ public class Main {
 		Ataque coligneo = new Ataque("Colmillo Igneo", "Fuego", 70);
 		Ataque cascada = new Ataque("Cascada", "Agua", 70);
 		Ataque latcepa = new Ataque("Latigo Cepa", "Planta", 60);
-		Ataque hoafi = new Ataque("Hoja Afilada", "Normal", 70);
+		Ataque hoafi = new Ataque("Hoja Afilada", "Planta", 70);
 		Ataque derribo = new Ataque("Derribo", "Normal", 70);
 		Ataque burbuja = new Ataque("Burbuja", "Agua", 40);
 		Ataque mordisco = new Ataque("Mordisco", "Siniestro", 60);
@@ -116,31 +116,76 @@ public class Main {
 			
 			switch(eleccion) {
 			case 1:
-				pokeElegido = charmander;
+				pokeElegido = new Pokemon("Charmander", "Fuego", 200);
+				pokeElegido.ataques = new ArrayList<Ataque>();
+				pokeElegido.ataques.add(ascuas);
+				pokeElegido.ataques.add(placaje);
+				pokeElegido.ataques.add(coligneo);
+				pokeElegido.ataques.add(cascada);;
 				break;
 			case 2:
-				pokeElegido = bulbasaur;
+				pokeElegido = new Pokemon("Bulbasaur", "Planta", 200);
+				pokeElegido.ataques = new ArrayList<Ataque>();
+				pokeElegido.ataques.add(placaje);
+				pokeElegido.ataques.add(latcepa);
+				pokeElegido.ataques.add(hoafi);
+				pokeElegido.ataques.add(derribo);;
 				break;
 			case 3:
-				pokeElegido = squirtle;
+				pokeElegido = new Pokemon("Squirtle", "Agua", 200);
+				pokeElegido.ataques = new ArrayList<Ataque>();
+				pokeElegido.ataques.add(placaje);
+				pokeElegido.ataques.add(cascada);
+				pokeElegido.ataques.add(burbuja);
+				pokeElegido.ataques.add(mordisco);
 				break;
 			case 4:
-				pokeElegido = pikachu;
+				pokeElegido = new Pokemon("Pikachu", "Electrico", 200);
+				pokeElegido.ataques = new ArrayList<Ataque>();
+				pokeElegido.ataques.add(placaje);
+				pokeElegido.ataques.add(impactrueno);
+				pokeElegido.ataques.add(rayo);
+				pokeElegido.ataques.add(derribo);
 				break;
 			case 5:
-				pokeElegido = caterpie;
+				pokeElegido = new Pokemon("Caterpie", "Bicho", 200);
+				pokeElegido.ataques = new ArrayList<Ataque>();
+				pokeElegido.ataques.add(placaje);
+				pokeElegido.ataques.add(picadura);
+				pokeElegido.ataques.add(tornado);
+				pokeElegido.ataques.add(confusion);
 				break;
 			case 6:
-				pokeElegido = ekans;
+				pokeElegido = new Pokemon("Ekans", "Veneno", 200);
+				pokeElegido.ataques = new ArrayList<Ataque>();
+				pokeElegido.ataques.add(placaje);
+				pokeElegido.ataques.add(picadura);
+				pokeElegido.ataques.add(mordisco);
+				pokeElegido.ataques.add(picvenenoso);
 				break;
 			case 7:
-				pokeElegido = pidgey;
+				pokeElegido = new Pokemon("Pidgey", "Volador", 200);
+				pokeElegido.ataques = new ArrayList<Ataque>();
+				pokeElegido.ataques.add(placaje);
+				pokeElegido.ataques.add(tornado);
+				pokeElegido.ataques.add(derribo);
+				pokeElegido.ataques.add(picvenenoso);
 				break;
 			case 8:
-				pokeElegido = mankey;
+				pokeElegido = new Pokemon("Mankey", "Lucha", 200);
+				pokeElegido.ataques = new ArrayList<Ataque>();
+				pokeElegido.ataques.add(placaje);
+				pokeElegido.ataques.add(mordisco);
+				pokeElegido.ataques.add(derribo);
+				pokeElegido.ataques.add(golpeka);
 				break;
 			case 9:
-				pokeElegido = onix;
+				pokeElegido = new Pokemon("Onix", "Roca", 200);
+				pokeElegido.ataques = new ArrayList<Ataque>();
+				pokeElegido.ataques.add(derribo);
+				pokeElegido.ataques.add(lanzrocas);
+				pokeElegido.ataques.add(terremoto);
+				pokeElegido.ataques.add(girobola);
 				break;
 			}
 			
@@ -161,31 +206,76 @@ public class Main {
 			
 			switch(randomPokemon) {
 			case 1:
-				pokeOponente = charmander;
+				pokeOponente = new Pokemon("Charmander", "Fuego", 200);
+				pokeOponente.ataques = new ArrayList<Ataque>();
+				pokeOponente.ataques.add(ascuas);
+				pokeOponente.ataques.add(placaje);
+				pokeOponente.ataques.add(coligneo);
+				pokeOponente.ataques.add(cascada);;
 				break;
 			case 2:
-				pokeOponente = bulbasaur;
+				pokeOponente = new Pokemon("Bulbasaur", "Planta", 200);
+				pokeOponente.ataques = new ArrayList<Ataque>();
+				pokeOponente.ataques.add(placaje);
+				pokeOponente.ataques.add(latcepa);
+				pokeOponente.ataques.add(hoafi);
+				pokeOponente.ataques.add(derribo);;
 				break;
 			case 3:
-				pokeOponente = squirtle;
+				pokeOponente = new Pokemon("Squirtle", "Agua", 200);
+				pokeOponente.ataques = new ArrayList<Ataque>();
+				pokeOponente.ataques.add(placaje);
+				pokeOponente.ataques.add(cascada);
+				pokeOponente.ataques.add(burbuja);
+				pokeOponente.ataques.add(mordisco);
 				break;
 			case 4:
-				pokeOponente = pikachu;
+				pokeOponente = new Pokemon("Pikachu", "Electrico", 200);
+				pokeOponente.ataques = new ArrayList<Ataque>();
+				pokeOponente.ataques.add(placaje);
+				pokeOponente.ataques.add(impactrueno);
+				pokeOponente.ataques.add(rayo);
+				pokeOponente.ataques.add(derribo);
 				break;
 			case 5:
-				pokeOponente = caterpie;
+				pokeOponente = new Pokemon("Caterpie", "Bicho", 200);
+				pokeOponente.ataques = new ArrayList<Ataque>();
+				pokeOponente.ataques.add(placaje);
+				pokeOponente.ataques.add(picadura);
+				pokeOponente.ataques.add(tornado);
+				pokeOponente.ataques.add(confusion);
 				break;
 			case 6:
-				pokeOponente = ekans;
+				pokeOponente = new Pokemon("Ekans", "Veneno", 200);
+				pokeOponente.ataques = new ArrayList<Ataque>();
+				pokeOponente.ataques.add(placaje);
+				pokeOponente.ataques.add(picadura);
+				pokeOponente.ataques.add(mordisco);
+				pokeOponente.ataques.add(picvenenoso);
 				break;
 			case 7:
-				pokeOponente = pidgey;
+				pokeOponente = new Pokemon("Pidgey", "Volador", 200);
+				pokeOponente.ataques = new ArrayList<Ataque>();
+				pokeOponente.ataques.add(placaje);
+				pokeOponente.ataques.add(tornado);
+				pokeOponente.ataques.add(derribo);
+				pokeOponente.ataques.add(picvenenoso);
 				break;
 			case 8:
-				pokeOponente = mankey;
+				pokeOponente = new Pokemon("Mankey", "Lucha", 200);
+				pokeOponente.ataques = new ArrayList<Ataque>();
+				pokeOponente.ataques.add(placaje);
+				pokeOponente.ataques.add(mordisco);
+				pokeOponente.ataques.add(derribo);
+				pokeOponente.ataques.add(golpeka);
 				break;
 			case 9:
-				pokeElegido = onix;
+				pokeOponente = new Pokemon("Onix", "Roca", 200);
+				pokeOponente.ataques = new ArrayList<Ataque>();
+				pokeOponente.ataques.add(derribo);
+				pokeOponente.ataques.add(lanzrocas);
+				pokeOponente.ataques.add(terremoto);
+				pokeOponente.ataques.add(girobola);
 				break;
 			}
 			
@@ -203,7 +293,6 @@ public class Main {
 		System.out.println("\n\n\n----------COMBATE POKEMON----------");
 		System.out.println(gary.nombre+" te ha retado a un combate!\n");
 	
-			
 		System.out.println(yo.equipo.get(0).nombre+" yo te elijo!");
 		System.out.println(gary.nombre+": "+gary.equipo.get(0).nombre+" yo te elijo!");
 			
@@ -223,23 +312,28 @@ public class Main {
 				if(yo.equipo.get(0).vida < 0) {
 					System.out.println(yo.equipo.get(0).nombre+" se ha ido con diosito.");
 					yo.equipo.remove(0);
-					System.out.println(yo.equipo.get(0).nombre+" yo te elijo!");
+					if(yo.equipo.size()!=0) {
+						System.out.println(yo.equipo.get(0).nombre+" yo te elijo!");
+					} else {
+						System.out.println("Gary ha ganado el combate.");
+						scan.nextLine();
+						System.out.println("Has perdido 58 PokeDolares.");
+					}
 				} else if (gary.equipo.get(0).vida < 0) {
 					System.out.println(gary.equipo.get(0).nombre+" se ha ido con diosito.");
 					gary.equipo.remove(0);
-					System.out.println(gary.nombre+": "+gary.equipo.get(0).nombre+" yo te elijo!");
+					if(gary.equipo.size()!=0) {
+						System.out.println(gary.nombre+": "+gary.equipo.get(0).nombre+" yo te elijo!");
+					} else {
+						System.out.println("Has ganado el combate!");
+						scan.nextLine();
+						System.out.println("Gary te ha dado 90 PokeDolares.");
+					}
 				} else {
 					i++;
 				}
 			}
 			
-			if(yo.equipo.size()==0) {
-				System.out.println("Has perdido.");
-			} else if (gary.equipo.size()==0) {
-				System.out.println("Has ganado");
-			}
-		
-
 	}
 }
 			

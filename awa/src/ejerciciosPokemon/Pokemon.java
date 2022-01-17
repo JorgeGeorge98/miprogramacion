@@ -46,7 +46,7 @@ public class Pokemon {
 		scan.nextLine();
 		System.out.println("Ha sido muy efectivo!");
 		scan.nextLine();
-		System.out.println(this.nombre+" ha perdido "+(atk.cantdanio*1.5)+" de HP.");
+		System.out.println(this.nombre+" ha perdido "+(atk.cantdanio*1.5)+" HP.");
 		scan.nextLine();
 		System.out.println(this.nombre+" ahora tiene "+this.vida+" HP.");
 	}
