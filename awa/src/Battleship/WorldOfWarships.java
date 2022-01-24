@@ -5,22 +5,53 @@ import java.util.*;
 public class WorldOfWarships {
 	public static int posJugador;
 	public static int posCPU;
-	public static int turnos;
+	public static int turnos = 0;
+	public static int turnosElec = 0;
 	public static int filas = 10;
 	public static int colum = 10; 
-	public static Barco lancha = new Barco(1, 5, 'L' , true);
-	public static Barco buque = new Barco(3, 3, 'B', true);
-	public static Barco acorazado = new Barco(4, 1, 'Z', true);
-	public static Barco portaaviones = new Barco(5, 1, 'P', false);
+	public static Barco lancha = new Barco(1, 5);
+	public static Barco buque = new Barco(3, 3);
+	public static Barco acorazado = new Barco(4, 1);
+	public static Barco portaaviones = new Barco(5, 1);
 
 	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
 											
+		System.out.println("----------------------Bienvenido a World Of Warships-------------------------");
+		System.out.println("Elije el nivel de dificultad: (1)Facil (2)Medio (3)Dificil (4)Personalizado: ");
+		int elec = scan.nextInt();
 		char[][] tablaJugador = crearTabla();
 		char[][] tablaCPU = crearTabla();
 		char[][] tablaBatalla = crearTabla();
-
-		setTablaJugador(tablaJugador);
-		setTablaCPU(tablaCPU);
+		
+	    
+		switch(elec) {
+		case 1:
+			setTablaJugador(tablaJugador, elec);
+			setTablaCPU(tablaCPU, elec);
+			turnosElec = 50;
+			break;
+		case 2:
+			lancha.setCantidad(2);
+			buque.setCantidad(1);
+			acorazado.setCantidad(1);
+			portaaviones.setCantidad(1);
+			setTablaJugador(tablaJugador, elec);
+			setTablaCPU(tablaCPU, elec);
+			turnosElec = 30;
+			break;
+		case 3:
+			lancha.setCantidad(1);
+			buque.setCantidad(1);
+			setTablaJugador(tablaJugador, elec);
+			setTablaCPU(tablaCPU, elec);
+			turnosElec = 10;
+			break;
+		default:
+			System.out.println("Error por tonto");
+		}
+	    
 		System.out.println("Tu tabla");
 		mostrarTabla(tablaJugador);
 		System.out.println("\nTabla rival");
@@ -28,7 +59,7 @@ public class WorldOfWarships {
 		
 		do {
 			batalla(tablaJugador, tablaCPU, tablaBatalla);
-		} while(posJugador!=0 && posCPU !=0 && turnos <= 50);
+		} while(posJugador!=0 && posCPU !=0 && turnos <= turnosElec);
 		
 		gameOver();
 	
@@ -41,8 +72,8 @@ public class WorldOfWarships {
 		
 		char tabla[][]=new char[filas][colum];
 				
-		for(int i=0; i<10; i++) {
-			for(int j=0; j<10; j++) {
+		for(int i=0; i<filas; i++) {
+			for(int j=0; j<colum; j++) {
 				tabla[i][j] = '-';
 			}
 		}
@@ -181,30 +212,68 @@ public class WorldOfWarships {
 	//------------------------------------------------------------//
 	
 	//Setea la tabla del jugador con barcos//
-	public static char[][] setTablaJugador(char[][] tabla) {
-		
-		setLancha(tabla);
-		posJugador = lancha.getCantidad() * lancha.getPosiciones();
-		setBuque(tabla);
-		posJugador = buque.getCantidad() * buque.getPosiciones();
-		setAcorazado(tabla);
-		posJugador = acorazado.getCantidad() * acorazado.getPosiciones();
-		setPortaaviones(tabla);
-		posJugador = portaaviones.getCantidad() * portaaviones.getPosiciones();
+	public static char[][] setTablaJugador(char[][] tabla, int elec) {
+		switch(elec) {
+		case 1:
+			setLancha(tabla);
+			setBuque(tabla);
+			setAcorazado(tabla);
+			setPortaaviones(tabla);
+			posJugador = (lancha.getCantidad() * lancha.getPosiciones()) + (buque.getCantidad() * buque.getPosiciones()) + (acorazado.getCantidad() * acorazado.getPosiciones()) + (portaaviones.getCantidad() * portaaviones.getPosiciones());
+			break;
+		case 2:
+			setLancha(tabla);
+			setBuque(tabla);
+			setAcorazado(tabla);
+			setPortaaviones(tabla);
+			posJugador = (lancha.getCantidad() * lancha.getPosiciones()) + (buque.getCantidad() * buque.getPosiciones()) + (acorazado.getCantidad() * acorazado.getPosiciones()) + (portaaviones.getCantidad() * portaaviones.getPosiciones());
+			break;
+		case 3:
+			setLancha(tabla);
+			setBuque(tabla);
+			posJugador = (lancha.getCantidad() * lancha.getPosiciones()) + (buque.getCantidad() * buque.getPosiciones());
+			break;
+		case 4:
+			setLancha(tabla);
+			setBuque(tabla);
+			setAcorazado(tabla);
+			setPortaaviones(tabla);
+			posJugador = (lancha.getCantidad() * lancha.getPosiciones()) + (buque.getCantidad() * buque.getPosiciones()) + (acorazado.getCantidad() * acorazado.getPosiciones()) + (portaaviones.getCantidad() * portaaviones.getPosiciones());
+			break;
+		}
 		return tabla;
 	}
 	
 	//Setea la tabla del CPU con barcos//
-	public static char[][] setTablaCPU(char[][] tabla) {
-		
-		setLancha(tabla);
-		posCPU = lancha.getCantidad() * lancha.getPosiciones();
-		setBuque(tabla);
-		posCPU = buque.getCantidad() * buque.getPosiciones();
-		setAcorazado(tabla);
-		posCPU = acorazado.getCantidad() * acorazado.getPosiciones();
-		setPortaaviones(tabla);
-		posCPU = portaaviones.getCantidad() * portaaviones.getPosiciones();
+	public static char[][] setTablaCPU(char[][] tabla, int elec) {
+		switch(elec) {
+		case 1:
+			setLancha(tabla);
+			setBuque(tabla);
+			setAcorazado(tabla);
+			setPortaaviones(tabla);
+			posCPU = (lancha.getCantidad() * lancha.getPosiciones()) + (buque.getCantidad() * buque.getPosiciones()) + (acorazado.getCantidad() * acorazado.getPosiciones()) + (portaaviones.getCantidad() * portaaviones.getPosiciones());
+			break;
+		case 2:
+			setLancha(tabla);
+			setBuque(tabla);
+			setAcorazado(tabla);
+			setPortaaviones(tabla);
+			posCPU = (lancha.getCantidad() * lancha.getPosiciones()) + (buque.getCantidad() * buque.getPosiciones()) + (acorazado.getCantidad() * acorazado.getPosiciones()) + (portaaviones.getCantidad() * portaaviones.getPosiciones());
+			break;
+		case 3:
+			setLancha(tabla);
+			setBuque(tabla);
+			posCPU = (lancha.getCantidad() * lancha.getPosiciones()) + (buque.getCantidad() * buque.getPosiciones());
+			break;
+		case 4:
+			setLancha(tabla);
+			setBuque(tabla);
+			setAcorazado(tabla);
+			setPortaaviones(tabla);
+			posCPU = (lancha.getCantidad() * lancha.getPosiciones()) + (buque.getCantidad() * buque.getPosiciones()) + (acorazado.getCantidad() * acorazado.getPosiciones()) + (portaaviones.getCantidad() * portaaviones.getPosiciones());
+			break;
+		}
 		return tabla;
 	}
 	
@@ -230,7 +299,7 @@ public class WorldOfWarships {
 		
 		if(posJugador>0 && posCPU<=0) {
 			System.out.println("HAS GANADO!!!");
-		} else if (posJugador>posCPU && turnos==50) {
+		} else if (posJugador>posCPU && turnos==turnosElec) {
 			System.out.println("HAS GANADO!!!");
 		} else {
 			System.out.println("Has perdido :(((");
