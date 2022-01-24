@@ -8,7 +8,7 @@ public class WorldOfWarships {
 	public static int turnos = 0;
 	public static int turnosElec = 0;
 	public static int filas = 10;
-	public static int colum = 11; 
+	public static int colum = 10; 
 	public static Barco lancha = new Barco(1, 5);
 	public static Barco buque = new Barco(3, 3);
 	public static Barco acorazado = new Barco(4, 1);
@@ -21,18 +21,24 @@ public class WorldOfWarships {
 		System.out.println("----------------------Bienvenido a World Of Warships-------------------------");
 		System.out.println("Elije el nivel de dificultad: (1)Facil (2)Medio (3)Dificil (4)Personalizado: ");
 		int elec = scan.nextInt();
-		char[][] tablaJugador = crearTabla();
-		char[][] tablaCPU = crearTabla();
-		char[][] tablaBatalla = crearTabla();
+		char[][] tablaJugador = null;
+		char[][] tablaCPU = null;
+		char[][] tablaBatalla = null;
 		
 	    
 		switch(elec) {
 		case 1:
+			tablaJugador = crearTabla();
+			tablaCPU = crearTabla();
+			tablaBatalla = crearTabla();
 			setTablaJugador(tablaJugador, elec);
 			setTablaCPU(tablaCPU, elec);
 			turnosElec = 50;
 			break;
 		case 2:
+			tablaJugador = crearTabla();
+			tablaCPU = crearTabla();
+			tablaBatalla = crearTabla();
 			lancha.setCantidad(2);
 			buque.setCantidad(1);
 			acorazado.setCantidad(1);
@@ -42,6 +48,9 @@ public class WorldOfWarships {
 			turnosElec = 30;
 			break;
 		case 3:
+			tablaJugador = crearTabla();
+			tablaCPU = crearTabla();
+			tablaBatalla = crearTabla();
 			lancha.setCantidad(1);
 			buque.setCantidad(1);
 			setTablaJugador(tablaJugador, elec);
@@ -64,6 +73,11 @@ public class WorldOfWarships {
 			portaaviones.setCantidad(scan.nextInt());
 			System.out.println("Elige el numero de turnos: ");
 			turnosElec = scan.nextInt();
+			
+			tablaJugador = crearTabla();
+			tablaCPU = crearTabla();
+			tablaBatalla = crearTabla();
+			
 			setTablaJugador(tablaJugador, elec);
 			setTablaCPU(tablaCPU, elec);
 			break;
@@ -103,18 +117,18 @@ public class WorldOfWarships {
 	//Muestra la tabla que se pasa por parametro//
 	public static void mostrarTabla(char[][] tabla) {
 		
-		char letras[]= {'A','B','C','D','E','F','G','H','I','J'};
+		char letras[]= {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 
 		System.out.print("  ");
-		for(int i=0; i<10; i++) {
+		for(int i=0; i<colum; i++) {
 			System.out.print(i+" ");
 		}
 		
 		System.out.print("\n");
 		
-		for(int i=0; i<10; i++) {
+		for(int i=0; i<filas; i++) {
 			System.out.print(letras[i]+" ");
-			for(int j=0; j<10; j++) {
+			for(int j=0; j<colum; j++) {
 				System.out.print(tabla[i][j]+" ");
 			}
 			System.out.print("\n");
@@ -134,8 +148,8 @@ public class WorldOfWarships {
 			seteado = false;
 			
 			do {
-				x = (int)(Math.random()*9+0);
-				y = (int)(Math.random()*9+0);
+				x = (int)(Math.random()*filas+0);
+				y = (int)(Math.random()*colum+0);
 				
 				if(tabla[x][y]!='L') {
 					tabla[x][y]='L';
@@ -159,7 +173,7 @@ public class WorldOfWarships {
 			seteado = false;
 			
 			do {
-				x = (int)(Math.random()*9+0);
+				x = (int)(Math.random()*filas+0);
 				y = (int)(Math.random()*7+0);
 				
 				if(tabla[x][y]!='L' && tabla[x][y+1]!='L' && tabla[x][y+2]!='L' && tabla[x][y]!='B' && tabla[x][y+1]!='B' && tabla[x][y+2]!='B' ) {
@@ -185,7 +199,7 @@ public class WorldOfWarships {
 			seteado = false;
 			
 			do {
-				x = (int)(Math.random()*9+0);
+				x = (int)(Math.random()*filas+0);
 				y = (int)(Math.random()*6+0);
 				
 				if(tabla[x][y]!='L' && tabla[x][y+1]!='L' && tabla[x][y+2]!='L' && tabla[x][y+3]!='L' && tabla[x][y]!='B' && tabla[x][y+1]!='B' && tabla[x][y+2]!='B' && tabla[x][y+3]!='B' && tabla[x][y]!='A' && tabla[x][y+1]!='A' && tabla[x][y+2]!='A' && tabla[x][y+3]!='A' ) {
@@ -213,7 +227,7 @@ public class WorldOfWarships {
 			
 			do {
 				x = (int)(Math.random()*5+0);
-				y = (int)(Math.random()*9+0);
+				y = (int)(Math.random()*colum+0);
 				
 				if(tabla[x][y]!='L' && tabla[x+1][y]!='L' && tabla[x+2][y]!='L' && tabla[x+3][y]!='L' && tabla[x+4][y]!='L' && tabla[x][y]!='B' && tabla[x+1][y]!='B' && tabla[x+2][y]!='B' && tabla[x+3][y]!='B' && tabla[x+4][y]!='B' && tabla[x][y]!='A' && tabla[x+1][y]!='A' && tabla[x+2][y]!='A' && tabla[x+3][y]!='A'  && tabla[x+4][y]!='A' && tabla[x][y]!='P' && tabla[x+1][y]!='P' && tabla[x+2][y]!='P' && tabla[x+3][y]!='P' && tabla[x+4][y]!='P') {
 					tabla[x][y]='P';
@@ -334,9 +348,9 @@ public class WorldOfWarships {
 		int x = 0,y = 0;
 		char letraX;
 		
-		System.out.println("Introduce coordenada X (0-9): ");
+		System.out.println("Introduce coordenada X (0-"+colum+"): ");
 		y = scan.nextInt();
-		if(y<0 || y>9) {
+		if(y<0 || y>colum) {
 			System.out.println("Fatal Error, no has introducido un valor aceptable.");
 		}
 		
@@ -374,6 +388,54 @@ public class WorldOfWarships {
 		case 'J':
 			x=9;
 			break;
+		case 'K':
+			x=10;
+			break;
+		case 'L':
+			x=11;
+			break;
+		case 'M':
+			x=12;
+			break;
+		case 'N':
+			x=13;
+			break;
+		case 'O':
+			x=14;
+			break;
+		case 'P':
+			x=15;
+			break;
+		case 'Q':
+			x=16;
+			break;
+		case 'R':
+			x=17;
+			break;
+		case 'S':
+			x=18;
+			break;
+		case 'T':
+			x=19;
+			break;
+		case 'U':
+			x=20;
+			break;
+		case 'V':
+			x=21;
+			break;
+		case 'W':
+			x=22;
+			break;
+		case 'X':
+			x=23;
+			break;
+		case 'Y':
+			x=24;
+			break;
+		case 'Z':
+			x=25;
+			break;
 		case 'a':
 			x=0;
 			break;
@@ -404,6 +466,54 @@ public class WorldOfWarships {
 		case 'j':
 			x=9;
 			break;
+		case 'k':
+			x=10;
+			break;
+		case 'l':
+			x=11;
+			break;
+		case 'm':
+			x=12;
+			break;
+		case 'n':
+			x=13;
+			break;
+		case 'o':
+			x=14;
+			break;
+		case 'p':
+			x=15;
+			break;
+		case 'q':
+			x=16;
+			break;
+		case 'r':
+			x=17;
+			break;
+		case 's':
+			x=18;
+			break;
+		case 't':
+			x=19;
+			break;
+		case 'u':
+			x=20;
+			break;
+		case 'v':
+			x=21;
+			break;
+		case 'w':
+			x=22;
+			break;
+		case 'x':
+			x=23;
+			break;
+		case 'y':
+			x=24;
+			break;
+		case 'z':
+			x=25;
+			break;
 		default:
 			System.out.println("Fatal Error, no has introducido un valor aceptable.");
 			break;
@@ -429,8 +539,8 @@ public class WorldOfWarships {
 	//Maneja el turno de la computadora//
 	public static void turnoCPU(char[][]tablaJugador) {
 		
-		int x = (int)(Math.random()*9+0);
-		int y = (int)(Math.random()*9+0);
+		int x = (int)(Math.random()*filas+0);
+		int y = (int)(Math.random()*colum+0);
 		
 		if(tablaJugador[x][y] == 'L' || tablaJugador[x][y] == 'B' || tablaJugador[x][y] == 'A' || tablaJugador[x][y] == 'P') {
 			System.out.println("Tu rival ha acertado!");
