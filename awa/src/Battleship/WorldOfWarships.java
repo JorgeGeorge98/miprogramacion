@@ -8,7 +8,7 @@ public class WorldOfWarships {
 	public static int turnos = 0;
 	public static int turnosElec = 0;
 	public static int filas = 10;
-	public static int colum = 10; 
+	public static int colum = 11; 
 	public static Barco lancha = new Barco(1, 5);
 	public static Barco buque = new Barco(3, 3);
 	public static Barco acorazado = new Barco(4, 1);
@@ -47,6 +47,25 @@ public class WorldOfWarships {
 			setTablaJugador(tablaJugador, elec);
 			setTablaCPU(tablaCPU, elec);
 			turnosElec = 10;
+			break;
+		case 4:
+			System.out.println("---MODO PERSONALIZADO---");
+			System.out.println("Elige el numero de filas: ");
+			filas = scan.nextInt();
+			System.out.println("Elige el numero de columnas: ");
+			colum = scan.nextInt();
+			System.out.println("Elige el numero de Lanchas: ");
+			lancha.setCantidad(scan.nextInt());
+			System.out.println("Elige el numero de Buques: ");
+			buque.setCantidad(scan.nextInt());
+			System.out.println("Elige el numero de Acorazados: ");
+			acorazado.setCantidad(scan.nextInt());
+			System.out.println("Elige el numero de Portaaviones: ");
+			portaaviones.setCantidad(scan.nextInt());
+			System.out.println("Elige el numero de turnos: ");
+			turnosElec = scan.nextInt();
+			setTablaJugador(tablaJugador, elec);
+			setTablaCPU(tablaCPU, elec);
 			break;
 		default:
 			System.out.println("Error por tonto");
