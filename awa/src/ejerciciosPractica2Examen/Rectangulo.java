@@ -165,6 +165,11 @@ public class Rectangulo {
 		return ar;
 	}
 	
+	public void comapararAr(Rectangulo r) {
+		int comparar = this.getArea() - r.getArea();
+		System.out.println("La diferencia entre las 2 areas es de "+comparar);
+	}
+	
 	public void imprimir() {
 		System.out.println("X2:"+this.x2+" Y2:"+this.y2+"\nX1:"+this.x1+" Y1: "+this.y1);
 	}
