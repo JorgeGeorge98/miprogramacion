@@ -1,5 +1,10 @@
 package entornosActividad18;
 
+/**
+ * Excepcion que saltara cuando se haga alguna transaccion mayor a {@code AVISAR_HACIENDA}.
+ * @author Jorge
+ * @version 1.0
+ */
 public class AvisarHaciendaException extends Exception {
     // Atributos
     private String iban;
@@ -8,6 +13,13 @@ public class AvisarHaciendaException extends Exception {
     private double cantidad;
     
     // Constructor
+    /**
+     * Constructor de clase.
+     * @param iban 
+     * @param titular
+     * @param tipoOperacion
+     * @param cantidad
+     */
     public AvisarHaciendaException(String iban, String titular, String tipoOperacion, double cantidad) 
     {
         this.iban = iban;
@@ -16,6 +28,9 @@ public class AvisarHaciendaException extends Exception {
         this.cantidad = cantidad;
     }
     
+    /**
+     * Metodo {@code toString} de la excepcion.
+     */
     @Override
     public String toString()
     {

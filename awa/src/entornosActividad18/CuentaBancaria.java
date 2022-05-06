@@ -27,7 +27,7 @@ public class CuentaBancaria {
 	 */
 	private double saldo;
 	/**
-	 * ArrayList que almcaenara los movimientos que haga la cuenta.
+	 * ArrayList que almacenara los movimientos que haga la cuenta.
 	 * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList</a>
 	 */
 	private ArrayList movimientos;
@@ -138,13 +138,14 @@ public class CuentaBancaria {
 	}
 
 	/**
-	 * Este es el metodo que opera
-	 * @param cantidad
-	 * @return
-	 * @throws CuentaException
-	 * @throws AvisarHaciendaException
-	 * @throws AvisarHaciendaAndSaldoException
-	 * @throws Exception
+	 * Este es el metodo que se encarga de hacer la operacion con la cantidad que se le pase por parametro, la cantidad se sumara al saldo, si la cantidad es negativa se sacara la cantidad del saldo. La transaccion se agregara al {@code ArrayList} de {@link #movimientos}. 
+	 * @param cantidad La cantidad de dinero con la que se va a operar.
+	 * @return True, si la transaccion se ha completado con exito.
+	 * @throws CuentaException Si el saldo en la cuenta mas la cantidad a operar es menor a {@link #SALDO_MINIMO}, saltara {@link CuentaException}.
+	 * @throws AvisarHaciendaException Si la cantidad se mayor a {@link #AVISAR_HACIENDA}.
+	 * @throws AvisarHaciendaAndSaldoException Si la cantidad es mayor a {@link #AVISAR_HACIENDA} y el saldo es negativo.
+	 * @throws Exception Si el saldo queda en negativo.
+	 * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#abs(int)">Math.abs</a>
 	 */
 	private boolean operar(double cantidad)
 			throws CuentaException, AvisarHaciendaException, AvisarHaciendaAndSaldoException, Exception {
@@ -170,6 +171,11 @@ public class CuentaBancaria {
 		return true;
 	}
 
+	/**
+	 * Regresara un String con el tipo de operacion que se haya realizado segun la cantidad que entra por parametro.
+	 * @param cantidad Cantidad con la que se ha hecho la operacion.
+	 * @return String con el tipo de operacion realizado, puede ser {@code "INGRESO"} si la cantidad es positiva o {@code "RETIRADA"} si la cantidad es negativa.
+ 	 */
 	private String tipoOperacion(double cantidad) {
 		String tipoOperacion = "";
 
@@ -183,15 +189,24 @@ public class CuentaBancaria {
 
 	}
 
+	/**
+	 * Ejecuta las funciones {@link #imprimirDatos()} e {@link #imprimirMovimientos()}.
+	 */
 	public void imprimir() {
 		imprimirDatos();
 		imprimirMovimientos();
 	}
 
+	/**
+	 * Imprime el IBAN de la cuenta, nombre del titular y el saldo actual.
+	 */
 	public void imprimirDatos() {
 		System.out.println("IBAN: " + getIban() + " - Titular: " + getTitular() + " - Saldo: " + getSaldo());
 	}
 
+	/**
+	 * Imprime el {@code ArrayList} de movimientos realizados.
+	 */
 	public void imprimirMovimientos() {
 		System.out.println("Movimientos: " + movimientos.size());
 		for (int i = 0; i < movimientos.size(); i++) {
